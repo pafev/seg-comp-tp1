@@ -74,21 +74,3 @@ def lshift(text, qty):
 
 def perm8(key):
     return key[5] + key[2] + key[6] + key[3] + key[7] + key[4] + key[9] + key[8]
-
-
-def gen_subkeys(key):
-    key1 = perm8(lshift(perm10(key), 1))
-    key2 = perm8(lshift(lshift(perm10(key), 1), 2))
-    return key1, key2
-
-
-def encrypt(plaintext, key):
-    key1, key2 = gen_subkeys(key)
-    ciphertext = inv_init_perm(func_k(switch(func_k(init_perm(plaintext), key1)), key2))
-    return "".join(ciphertext)
-
-
-def decrypt(ciphertext, key):
-    key1, key2 = gen_subkeys(key)
-    plaintext = inv_init_perm(func_k(switch(func_k(init_perm(ciphertext), key2)), key1))
-    return "".join(plaintext)
