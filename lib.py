@@ -1,4 +1,13 @@
 def init_perm(text):
+    """
+    Realiza a permutacao inicial do texto.
+
+    Args:
+        text (str): Texto a sofrer permutacao inicial.
+
+    Returns:
+        str: Texto permutado.
+    """
     return text[1] + text[5] + text[2] + text[0] + text[3] + text[7] + text[4] + text[6]
 
 
